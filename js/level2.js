@@ -329,8 +329,9 @@ function updateCanvas() {
   var result = fishCollision();
 
   if (result.hasCollided) {
-    ctx.font("300px Arial");
-    ctx.fillText("Game Over!",100, 100);
+    ctx.font = "100px Arial"
+    fillStyle = "black";
+    ctx.fillText("Game Over!",300,350);
     return;
   } else {
     drawScore();

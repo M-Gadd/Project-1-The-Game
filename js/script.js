@@ -331,10 +331,14 @@ function updateCanvas() {
     // $('.gameOver').on('shown.bs.modal', function () {
     //   $('.gameOver').focus()
     // })
-    ctx.font("30px Arial");
-    ctx.fillText("Game Over!", 100,100);
-    return;
     
+    ctx.font = "100px Arial";
+    fillStyle = "black";
+    ctx.fillText("Game Over!",300,350);
+    // clearInterval();
+    // ctx.clearRect(0,0, canvas.width, canvas.height);
+    return;
+
   } else {
     drawScore();
   }
