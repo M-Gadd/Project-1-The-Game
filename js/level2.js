@@ -1,30 +1,33 @@
 // ALL THE IMAGES-----------------------
+var img = new Image();
+img.src = "./images/blue-ocean-water-5412.jpg";
+
 var fishImg = new Image();
-fishImg.src = "/Users/mgad/code/Projects/Project-1-The-Game/images/fish STICKER-source.gif";
+fishImg.src = "./images/MainFish.gif";
 
 var coralReefImg = new Image();
-coralReefImg.src = "/Users/mgad/code/Projects/Project-1-The-Game/images/Under Water Fish Sticker by Nicole Ginelli-source (1) copy.gif";
+coralReefImg.src = "./images/Coralreef.gif";
 
 var inverseCoralReefImg = new Image();
-inverseCoralReefImg.src = "/Users/mgad/code/Projects/Project-1-The-Game/images/Under Water Fish Sticker by Nicole Ginelli-source (1).gif";
+inverseCoralReefImg.src = "./images/coralreefInverse.gif";
 
 var foodFishImg = new Image ();
-foodFishImg.src = "/Users/mgad/code/Projects/Project-1-The-Game/images/fish_PNG10538.png";
+foodFishImg.src = "./images/fish1.png";
 
 var FemaleImg = new Image();
-FemaleImg.src = "/Users/mgad/code/Projects/Project-1-The-Game/images/Mermaid-PNG-Clipart.png";
+FemaleImg.src = "./images/Mermaid.png";
 
 var foodFishImg2 = new Image();
-foodFishImg2.src = "/Users/mgad/code/Projects/Project-1-The-Game/images/fish_PNG25162.png";
+foodFishImg2.src = "./images/fish2.png";
 
 var sharkImg = new Image();
-sharkImg.src = "/Users/mgad/code/Projects/Project-1-The-Game/images/Shark.png";
+sharkImg.src = "./images/Shark.png";
 
 var bubbleImg = new Image();
-bubbleImg.src = "/Users/mgad/code/Projects/Project-1-The-Game/images/bubbles-2449751_1920.png";
+bubbleImg.src = "./images/bubbles.png";
 
 var crabImg = new Image();
-crabImg.src = "/Users/mgad/code/Projects/Project-1-The-Game/images/Little-mermaid-sebastian.png";
+crabImg.src = "./images/crab.png";
 
 
 //END OF ALL THE IMAGES-----------------------
@@ -56,8 +59,6 @@ var ctx = canvas.getContext("2d");
 
 
 //BAKGROUND------------------------
-var img = new Image();
-img.src = "/Users/mgad/code/Projects/Project-1-The-Game/images/blue-ocean-water-5412.jpg";
 
 // var canvas = document.getElementById('canvas');
 // var ctx = canvas.getContext('2d');
