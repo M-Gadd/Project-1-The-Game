@@ -89,8 +89,8 @@ var backgroundImage = {
 var fish  = {
   x:0,
   y: canvas.height/2,
-  width: 110,
-  height: 70,
+  width: 90,
+  height: 50,
   drawMe: function() {
     ctx.drawImage(fishImg, this.x, this.y, this.width, this.height);
   }
@@ -329,6 +329,8 @@ function updateCanvas() {
   var result = fishCollision();
 
   if (result.hasCollided) {
+    ctx.font("300px Arial");
+    ctx.fillText("Game Over!",100, 100);
     return;
   } else {
     drawScore();
