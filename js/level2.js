@@ -255,8 +255,18 @@ function fishCollision () {
 function updateCanvas() {
   // backgroundImage.move();
 
-  if (score===200){
-    window.location.href = 'level3.html';
+  if (score===200 ){ 
+    setTimeout(function(){
+      ctx.font = "100px Arial";
+      ctx.fillText("Level",430,250);
+      ctx.fillText("Completed",310,450);
+    },1000*0.5);
+    
+    setTimeout(function (){
+      window.location.href = 'level3.html';
+    },1000*3);
+
+    return;
   }
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
