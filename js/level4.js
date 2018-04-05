@@ -200,7 +200,8 @@ var score = 0;
 function drawScore() {
   ctx.font = "20px Arial";
   ctx.fillStyle = "#FFF";
-  ctx.fillText("Score: "+score, 1100, 30);
+  ctx.fillText("Score: "+score, canvas.width-120, 30);
+  ctx.fillText("Level 4", 30, 30);
 }
 
 // END OF SCORE---------------------------
@@ -304,8 +305,8 @@ function updateCanvas() {
   if (score===400 ){ 
     setTimeout(function(){
       ctx.font = "100px Arial";
-      ctx.fillText("Level",430,250);
-      ctx.fillText("Completed",310,450);
+      ctx.fillText("Level",canvas.width/2-180,canvas.height/2-100);
+      ctx.fillText("Completed",canvas.width/2-280,canvas.height/2+100);
     },1000*0.5);
     
     setTimeout(function (){
@@ -404,11 +405,16 @@ function updateCanvas() {
   if (result.hasCollided) {
     ctx.font = "100px Arial"
     fillStyle = "black";
-    ctx.fillText("Game Over!",300,350);
+    ctx.fillText("Game Over!",canvas.width/2-300,canvas.height/2);
 
-    setTimeout(function (){
-      window.location.href = 'index.html';
-    },1500);
+    var res = document.querySelector(".newBtn");
+    setTimeout(function(){
+      res.style.display="inline";
+    }, 1000*0.5);
+
+    // setTimeout(function (){
+    //   window.location.href = 'index.html';
+    // },1500);
     
     return;
   } else {

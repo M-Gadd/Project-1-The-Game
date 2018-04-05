@@ -1,6 +1,7 @@
-/* canvas {
-  border: 2px solid orange;
-} */
+/* canvas { */
+  /* border: 2px solid orange;  */
+  /* z-index: -1; */
+ /* }  */
 .input-group{
   width: 400px;
   margin-left: 310px;
@@ -8,4 +9,12 @@
 
 .jumbotron{
   text-align: center;
+}
+
+.newBtn{
+  display: none;
+  position: fixed;
+  top: 55%;
+  left: 45%;
+  /* z-index: 4; */
 }

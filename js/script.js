@@ -173,7 +173,8 @@ var score = 0;
 function drawScore() {
   ctx.font = "20px Arial";
   ctx.fillStyle = "#FFF";
-  ctx.fillText("Score: "+score, 1100, 30);
+  ctx.fillText("Score: "+score, canvas.width-120, 30);
+  ctx.fillText("Level 1", 30, 30);
 }
 
 // END OF SCORE---------------------------
@@ -257,8 +258,8 @@ function updateCanvas() {
   if (score===200 ){ 
     setTimeout(function(){
       ctx.font = "100px Arial";
-      ctx.fillText("Level",430,250);
-      ctx.fillText("Completed",310,450);
+      ctx.fillText("Level",canvas.width/2-180,canvas.height/2-100);
+      ctx.fillText("Completed",canvas.width/2-280,canvas.height/2+100);
     },1000*0.5);
     
     setTimeout(function (){
@@ -343,14 +344,21 @@ function updateCanvas() {
     // })
     
     ctx.font = "100px Arial";
-    fillStyle = "black";
-    ctx.fillText("Game Over!",300,350);
+    // fillStyle = "black";
+    ctx.fillText("Game Over!",canvas.width/2-300,canvas.height/2);
 
-    var restartGame = document.createElement("a");
-    restartGame.className = "btn btn-primary btn-lg";
-    restartGame.innerHTML = "Restart";
+    var res = document.querySelector(".newBtn");
+    setTimeout(function(){
+      res.style.display="inline";
+    }, 1000*0.5);
+    // var restartGame = document.createElement("a");
+    // restartGame.className = "btn btn-danger btn-lg newBtn";
+    // restartGame.innerHTML = "Restart";
     // restartGame.role = "button";
-    restartGame.href = "./Game.html";
+    // restartGame.href = "./Game.html";
+    // restartGame.style.margin ="50%"; 
+    // restartGame.fillText("", canvas.width/2,canvas.height/2);
+    // body.appendChild(restartGame);
     // clearInterval();
     // ctx.clearRect(0,0, canvas.width, canvas.height);
     // setTimeout(function (){
