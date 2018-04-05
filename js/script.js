@@ -345,8 +345,18 @@ function updateCanvas() {
     ctx.font = "100px Arial";
     fillStyle = "black";
     ctx.fillText("Game Over!",300,350);
+
+    var restartGame = document.createElement("a");
+    restartGame.className = "btn btn-primary btn-lg";
+    restartGame.innerHTML = "Restart";
+    // restartGame.role = "button";
+    restartGame.href = "./Game.html";
     // clearInterval();
     // ctx.clearRect(0,0, canvas.width, canvas.height);
+    // setTimeout(function (){
+    //   window.location.href = 'index.html';
+    // },1500);
+
     return;
 
   } else {
