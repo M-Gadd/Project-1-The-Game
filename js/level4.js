@@ -52,7 +52,7 @@ Creature.prototype.drawMe = function () {
 var canvas = document.querySelector(".first-canvas");
 canvas.width = window.innerWidth;
 // 37 H1 tag and 4 Border
-canvas.height = window.innerHeight-5;
+canvas.height = window.innerHeight-3;
 
 var ctx = canvas.getContext("2d");
 
@@ -305,13 +305,13 @@ function updateCanvas() {
   if (score===400 ){ 
     setTimeout(function(){
       ctx.font = "100px Arial";
-      ctx.fillText("Level",canvas.width/2-180,canvas.height/2-100);
+      ctx.fillText("Level",canvas.width/2-160,canvas.height/2-100);
       ctx.fillText("Completed",canvas.width/2-280,canvas.height/2+100);
     },1000*0.5);
     
     setTimeout(function (){
       window.location.href = 'level5.html';
-    },1000*3);
+    },1000*1.3);
 
     return;
   }

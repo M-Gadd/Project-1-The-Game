@@ -89,8 +89,8 @@ var backgroundImage = {
 var fish  = {
   x:0,
   y: canvas.height/2,
-  width: 110,
-  height: 70,
+  width: 120,
+  height: 80,
   drawMe: function() {
     ctx.drawImage(fishImg, this.x, this.y, this.width, this.height);
   }
@@ -135,6 +135,23 @@ var blockOfFish = [
   new Creature(foodFishImg, canvas.width/2+80, 160, 30, 20),
 ]
 
+var blockOfFish1 = [
+  new Creature(foodFishImg, canvas.width/2, 300, 30, 20),
+  new Creature(foodFishImg, canvas.width/2, 320, 30, 20),
+  new Creature(foodFishImg, canvas.width/2, 340, 30, 20),
+  new Creature(foodFishImg, canvas.width/2, 360, 30, 20), 
+  new Creature(foodFishImg, canvas.width/2+40, 280, 30, 20),
+  new Creature(foodFishImg, canvas.width/2+40, 300, 30, 20),
+  new Creature(foodFishImg, canvas.width/2+40, 320, 30, 20),
+  new Creature(foodFishImg, canvas.width/2+40, 340, 30, 20),
+  new Creature(foodFishImg, canvas.width/2+40, 360, 30, 20),
+  new Creature(foodFishImg, canvas.width/2+40, 380, 30, 20),
+  new Creature(foodFishImg, canvas.width/2+80, 400, 30, 20),
+  new Creature(foodFishImg, canvas.width/2+80, 420, 30, 20),
+  new Creature(foodFishImg, canvas.width/2+80, 440, 30, 20),
+  new Creature(foodFishImg, canvas.width/2+80, 460, 30, 20),
+]
+
 var blockOfFish2 = [
   new Creature(foodFishImg2, canvas.width-170, 200, 50, 40),
   new Creature(foodFishImg2, canvas.width-170, 250, 50, 40),
@@ -142,12 +159,21 @@ var blockOfFish2 = [
   new Creature(foodFishImg2, canvas.width-110, 200, 50, 40),
   new Creature(foodFishImg2, canvas.width-110, 250, 50, 40),
   new Creature(foodFishImg2, canvas.width-110, 300, 50, 40),
+]
 
+var blockOfFish22 = [
+  new Creature(foodFishImg2, canvas.width-170, 400, 50, 40),
+  new Creature(foodFishImg2, canvas.width-170, 450, 50, 40),
+  new Creature(foodFishImg2, canvas.width-110, 350, 50, 40),
+  new Creature(foodFishImg2, canvas.width-110, 400, 50, 40),
+  new Creature(foodFishImg2, canvas.width-110, 450, 50, 40),
+  new Creature(foodFishImg2, canvas.width-110, 500, 50, 40),
 ]
 
 var evilElements = [
-  new Creature(sharkImg, 700, canvas.height/2, 220, 100)
-  
+  new Creature(sharkImg, 900, 100, 220, 100),
+  new Creature(sharkImg, 700, 250, 220, 100),
+  new Creature(sharkImg, 700, canvas.height-100, 220, 100)
 ]
 
 var mermades = [
@@ -163,7 +189,8 @@ var allBubbles = [
 ]
 
 var otherElements = [
-  new Creature(crabImg, canvas.width, canvas.height-200, 70, 100)
+  new Creature(crabImg, canvas.width, canvas.height-200, 70, 100),
+  new Creature(crabImg, canvas.width, canvas.height-400, 70, 100)
 ]
 
 
@@ -175,7 +202,7 @@ function drawScore() {
   ctx.font = "20px Arial";
   ctx.fillStyle = "#FFF";
   ctx.fillText("Score: "+score, canvas.width-120, 30);
-  ctx.fillText("Level 3", 30, 30);
+  ctx.fillText("Level 6", 30, 30);
 }
 
 // END OF SCORE---------------------------
@@ -223,11 +250,31 @@ function fishCollision () {
     }
   });
 
+  blockOfFish1.forEach(function (oneFish){
+    if (collision(fish,oneFish)) {
+      hasEaten = true;
+      score +=10;
+      blockOfFish1.splice(blockOfFish1.indexOf(oneFish),1);
+      // return hasEaten;
+
+    }
+  });
+
   blockOfFish2.forEach(function (oneFish){
     if (collision(fish,oneFish)) {
       hasEaten = true;
       score +=10;
       blockOfFish2.splice(blockOfFish2.indexOf(oneFish),1);
+      // return hasEaten;
+
+    }
+  });
+
+  blockOfFish22.forEach(function (oneFish){
+    if (collision(fish,oneFish)) {
+      hasEaten = true;
+      score +=10;
+      blockOfFish22.splice(blockOfFish22.indexOf(oneFish),1);
       // return hasEaten;
 
     }
@@ -256,7 +303,7 @@ function fishCollision () {
 function updateCanvas() {
   // backgroundImage.move();
 
-  if (score===200 ){ 
+  if (score===400 ){ 
     setTimeout(function(){
       ctx.font = "100px Arial";
       ctx.fillText("Level",canvas.width/2-160,canvas.height/2-100);
@@ -264,7 +311,7 @@ function updateCanvas() {
     },1000*0.5);
     
     setTimeout(function (){
-      window.location.href = 'level4.html';
+      window.location.href = 'level7.html';
     },1000*1.3);
 
     return;
@@ -283,6 +330,14 @@ function updateCanvas() {
   })
 
   blockOfFish.forEach(function (fish){
+    fish.x-=4;
+    fish.drawMe();
+    if (fish.x <= -fish.width) {
+      fish.x = canvas.width;
+    }
+  })
+
+  blockOfFish1.forEach(function (fish){
     fish.x-=3;
     fish.drawMe();
     if (fish.x <= -fish.width) {
@@ -291,7 +346,16 @@ function updateCanvas() {
   })
 
   blockOfFish2.forEach(function(fish){
-    fish.x -=1.5;
+    fish.x -=2;
+    fish.drawMe();
+
+    if (fish.x <= -fish.width) {
+      fish.x = canvas.width;
+    }
+  })
+
+  blockOfFish22.forEach(function(fish){
+    fish.x -=3;
     fish.drawMe();
 
     if (fish.x <= -fish.width) {
@@ -300,7 +364,7 @@ function updateCanvas() {
   })
 
   evilElements.forEach(function(evil) {
-    evil.x-=3;
+    evil.x-=5;
     evil.drawMe();
 
     if (evil.x <= -evil.width) {
@@ -309,8 +373,8 @@ function updateCanvas() {
   })
 
   mermades.forEach(function(one) {
-    one.y -=3;
-    one.x -=3;
+    one.y -=5;
+    one.x -=5;
     one.drawMe();
 
     if (one.y <= -one.height) {
@@ -320,7 +384,7 @@ function updateCanvas() {
   });
 
   allBubbles.forEach(function(one) {
-    one.y-=3;
+    one.y-=2;
     one.drawMe();
 
     if (one.y <= -one.height) {
@@ -352,7 +416,7 @@ function updateCanvas() {
     // setTimeout(function (){
     //   window.location.href = 'index.html';
     // },1500);
-    
+
     return;
   } else {
     drawScore();
